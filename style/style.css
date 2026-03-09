@@ -1,0 +1,63 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+body{
+    background-color:#412567;
+}
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+}
+.container{
+   max-width:1250px;
+   margin:auto; 
+}
+
+ul{
+display:flex;
+gap:20px;
+list-style:none;
+}
+ul li a{
+    color: white;
+    text-decoration: none;
+}
+nav > div {
+    display: flex;
+    gap: 5px;
+}
+nav>div>h1{
+    color:white;
+    font-weight: 700;
+}
+nav>div>h1>span{
+
+background: linear-gradient(90deg,#F7E93F,#FB09B4,#9100F8);
+
+background-clip:text;
+-webkit-background-clip:text;
+
+color:transparent;
+-webkit-text-fill-color: transparent;
+
+}
+.subscribe-btn{
+
+    background: linear-gradient(90deg,#F7E93F,#FB09B4,#9100F8);
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    
+
+}
+.subscribe-btn span{
+    margin-left:6px;
+}
