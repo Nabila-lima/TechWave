@@ -4,60 +4,157 @@ padding:0;
 box-sizing:border-box;
 font-family:Arial;
 }
-body{
-    background-color:#412567;
-}
+
 nav{
+display:flex;
+justify-content:center;
+align-items:center;
+padding:16px 120px;
+background-color:#1A0B2E;
+}
+
+.container{
+max-width:1200px;
+width:100%;
+margin:auto;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px;
-}
-.container{
-   max-width:1250px;
-   margin:auto; 
 }
 
 ul{
 display:flex;
-gap:20px;
+gap:32px;
 list-style:none;
+flex-wrap:wrap;
 }
+
 ul li a{
-    color: white;
-    text-decoration: none;
+color:white;
+text-decoration:none;
 }
-nav > div {
-    display: flex;
-    gap: 5px;
+
+nav > div{
+display:flex;
+gap:5px;
 }
+
 nav>div>h1{
-    color:white;
-    font-weight: 700;
+color:white;
+font-weight:700;
 }
+
 nav>div>h1>span{
-
 background: linear-gradient(90deg,#F7E93F,#FB09B4,#9100F8);
-
 background-clip:text;
 -webkit-background-clip:text;
-
 color:transparent;
 -webkit-text-fill-color: transparent;
-
 }
+
 .subscribe-btn{
+display:flex;
+align-items:center;
+gap:4px;
+width:135px;
+height:44px;
+background: linear-gradient(90deg,#F7E93F,#FB09B4,#9100F8);
+color:white;
+border:none;
+padding:12px 16px;
+border-radius:30px;
+font-size:16px;
+cursor:pointer;
+}
+/*hero*/
+.banner-section{
+    background-image: url('../assets/hero-bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-    background: linear-gradient(90deg,#F7E93F,#FB09B4,#9100F8);
-    color:white;
-    border:none;
-    padding:10px 20px;
-    border-radius:30px;
-    font-size:16px;
-    cursor:pointer;
-    
+    width:100%;
+    min-height:760px;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+        color: white;
+}
+.banner-section .round-mic{
+    position:relative;
+}
+
+.banner-section .round-mic .round{
+       width:350px;
+       height:350px; 
+}
+.banner-section .round-mic .mic{
+      width:150px;
+      height:200px;
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform: translate(-50%, -50%);
+}
+.banner-section .round-mic span{
+    background-color:#00ff88;
+    color:black;
+    font-weight:700;
+    padding:6px 15px;
+    border-radius:20px;
+    display:inline-block;
+    position:absolute;
+    left:335px;
+    top: 1px;
+
 
 }
-.subscribe-btn span{
-    margin-left:6px;
+.banner-section>div>h1{
+
+    width:550px;
+    height:73px;
+}
+.banner-section>div>p{
+    max-width: 550px;
+}
+.banner-section>div{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+}
+.buttons{
+    margin-top:20px;
+    display:flex;
+    gap:15px;
+    justify-content: center;
+}
+.spotify-btn{
+    background:linear-gradient(90deg,#F7E93F,#FB09B4,#9100F8);
+    color:white;
+    padding:12px 20px;
+    border-radius:30px;
+    text-decoration:none;
+}
+.subscribe{
+    background:black;
+    color:green;
+    padding:12px 20px;
+    border-radius:30px;
+    text-decoration:none;
+   
+}
+/*container*/
+.about-podcast{
+ display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+        color: white;
+}
+.about-podcast>div{
+   display: flex;
+    flex-direction: column;
+    gap:15px;
 }
