@@ -5,8 +5,9 @@ box-sizing:border-box;
 }
 body{
     font-family:'Inter', Arial, sans-serif;
-    background-color: #1A0B2E;
+    background: radial-gradient(circle at top, rgba(255,255,255,0.04), transparent 25%), linear-gradient(180deg, #090215 0%, #15062d 60%, #0c0418 100%);
     color:white;
+    overflow-x:hidden;
 }
 h1,h2,h3{
     font-family:'Syne', sans-serif;
@@ -14,49 +15,55 @@ h1,h2,h3{
 .container{
     max-width:1200px;
     width:100%;
-    margin:auto;
+    margin: 0  auto;
     padding:0 24px;
 }
 nav{
 display:flex;
 justify-content:center;
 align-items:center;
-padding:16px 0;
-background-color:#1A0B2E;
+padding:20px 0;
+background: transparent;
+position:sticky;
+top:0;
+z-index:100;
 }
 
-.container{
-max-width:1200px;
-width:100%;
-margin:auto;
+nav .container{
 display:flex;
 justify-content:space-between;
 align-items:center;
 }
 
-ul{
+.nav-links{
 display:flex;
 gap:32px;
 list-style:none;
-flex-wrap:wrap;
 }
 
-ul li a{
+.nav-links li a{
 color:white;
 text-decoration:none;
+font-size:15px;
+font-weight:500;
+transition:color 0.2s;
 }
 
-nav > div{
+.nav-links li a:hover{color:rgba(255,255,255,0.8);}
+
+/*nav > div{
 display:flex;
 gap:5px;
-}
+}*/
 
-div>h1{
+.logo h1{
 color:white;
-font-weight:700;
+font-weight:800;
+font-size:28px;
+letter-spacing: -1px;
 }
 
-div>h1>span{
+.logo h1 span{
 background: linear-gradient(90deg,#F7E93F,#FB09B4,#9100F8);
 background-clip:text;
 -webkit-background-clip:text;
@@ -65,94 +72,205 @@ color:transparent;
 }
 
 .subscribe-btn{
-display:flex;
+display:inline-flex;
 align-items:center;
-gap:4px;
-width:135px;
+gap:8px;
 height:44px;
 background: linear-gradient(90deg,#F7E93F,#FB09B4,#9100F8);
 color:white;
 border:none;
-padding:12px 16px;
+padding:0 24px;
 border-radius:30px;
-font-size:16px;
-cursor:pointer;
+font-size:15px;
+font-family:'Inter', sans-serif;
+font-weight:600;
+text-decoration:none;
+line-height:44px;
+transition: opacity 0.2s, transform 0.2s;
 }
+.subscribe-btn:hover{opacity:0.95; transform: translateY(-1px);}
+
+.hamburger-btn{
+    display:none;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:4px;
+}
+.hamburger-btn img{
+    width:22px;
+    filter:invert(1);
+}
+
 /*hero*/
-.banner-section>div>form{
-    flex-direction: column;
-}
 .banner-section{
+    position:relative;
     background-image: url('../assets/hero-bg.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-
     width:100%;
-    min-height:760px;
-
+    min-height:calc(100vh - 90px);
     display:flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-        color: white;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:100px 0 80px;
+}
+
+.banner-section::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.08), transparent 35%);
+    pointer-events:none;
+}
+
+.banner-section .container{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+    max-width:800px;
+    width:100%;
 }
 .banner-section .round-mic{
     position:relative;
+    width:320px;
+    height:320px;
+    margin-bottom:10px;
 }
 
 .banner-section .round-mic .round{
-       width:350px;
-       height:350px; 
+       width:100%;
+       height:100%;
+       border-radius:50%;
+       display:block;
 }
 .banner-section .round-mic .mic{
-      width:150px;
-      height:200px;
+      width:160px;
+      height:auto;
       position:absolute;
       left:50%;
       top:50%;
       transform: translate(-50%, -50%);
+      object-fit:contain;
+      filter:brightness(0) invert(1);
 }
 .banner-section .round-mic span{
     background-color:#00ff88;
     color:black;
     font-weight:700;
-    padding:6px 15px;
-    border-radius:20px;
+    font-size:12px;
+    padding:8px 14px;
+    border-radius:24px;
     display:inline-block;
     position:absolute;
-    left:250px;
-    top: 2px;
-
-
+    right:-12px;
+    top:14px;
+    letter-spacing:0.5px;
 }
-.banner-section>div>h1{
-
-    width:550px;
-    height:73px;
+.banner-section h1{
+    font-size:64px;
+    font-weight:800;
+    letter-spacing:-1px;
+    margin:0;
 }
-.banner-section>div>p{
-    max-width: 550px;
+.banner-section p{
+    max-width:620px;
+    color:rgba(255,255,255,0.85);
+    font-size:16px;
+    line-height:1.8;
+    margin:0 auto;
 }
 .banner-section>div{
-    display: flex;
-    flex-direction: column;
-    gap:15px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    align-items:center;
 }
 .buttons{
-    margin-top:20px;
     display:flex;
-    gap:15px;
-    justify-content: center;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:16px;
+    margin-top:12px;
+}
+.buttons a{
+    display:inline-flex;
+    gap:10px;
+    align-items:center;
+    justify-content:center;
+    padding:12px 24px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.spotify-btn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:linear-gradient(90deg,#F7E93F,#FB09B4,#9100F8);
+    color:white;
+    padding:12px 24px;
+    border-radius:30px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    transition:opacity 0.2s, transform 0.2s;
+}
+.spotify-btn:hover{
+    opacity:0.95;
+    transform: translateY(-1px);
+}
+.subscribe-link{
+    background:transparent;
+    color:#00ff88;
+    border:2px solid #00ff88;
+    padding:10px 22px;
+    border-radius:30px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    transition:all 0.2s;
+}
+.subscribe-link:hover{
+    background:#00ff88;
+    color:black;
 }
 .spotify-btn{
+    display:flex;
+    align-items:center;
+    gap:8px;
     background:linear-gradient(90deg,#F7E93F,#FB09B4,#9100F8);
     color:white;
     padding:12px 20px;
     border-radius:30px;
     text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    transition:opacity 0.2s;
 }
-.subscribe{
+.subscribe-link{
+    background:transparent;
+    color:#00ff88;
+    border:2px solid #00ff88;
+    padding:10px 18px;
+    border-radius:30px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    transition:all 0.2s;
+}
+.subscribe-link:hover{
+    background:#00ff88;
+    color:black;
+}
+.Subscribe{
     background:black;
     color:green;
     
@@ -166,7 +284,7 @@ cursor:pointer;
 .about-podcast{
    background:#1A0B2E;
 color:white;
-padding:120px 120px;
+padding:80px 24px;
 
 }
 .about-content{
@@ -229,11 +347,11 @@ margin-bottom:60px;
 }
 .options{
     background: #230E3D;
-    padding: 100px 0;
+    padding: 80px 24px;
 }
 .features{
-    max-width:1200px;
-    margin:auto;
+   /* max-width:1200px;*/
+    /*margin:auto;*/
     display:grid;
     grid-template-columns: 1fr 1fr;
           grid-template-areas:
@@ -244,7 +362,7 @@ margin-bottom:60px;
  
 }
   
-.feature-card{
+.feature-card {
     background:#2e0f54;
     color:white;
     padding:35px;
@@ -277,6 +395,7 @@ margin-bottom:60px;
     justify-content: center;
     display: flex;
     flex-direction: column;
+    padding:50px;
 
 }
 .mobile{
@@ -302,7 +421,7 @@ margin-bottom:60px;
 }
 .episodes{
     background: #1A0B2E;
-    padding:100px 0;
+    padding:80px 24px;
     color: white;
 }
 .section-title{
@@ -409,13 +528,11 @@ font-weight:500;
 /*meet the host*/
 .host-section{
     background:#230E3D;
-    padding: 100px 24px;
+    padding: 80px 24px;
     color:white;
 }
 .host-section .section-title{
     margin-bottom: 48px;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
 }
 .host-card{
     max-width:800px;
@@ -467,14 +584,16 @@ font-weight:500;
     transition:background 0.2s, transform 0.2s;
 }
 .social-btn:hover{
-    background:rgba(255,255,255,0.08);
+    background:rgba(255,255,255,0.15);
     transform:translateY(-2px);
+    border-color:rgba(255,255,255,0.3);
 }
 /*footer*/
 footer{
     background:#1A0B2E;
     padding:60px 24px 40px;
     border-top:1px solid rgba(255,255,255,0.08);
+    margin-top:40px;
 }
 .footer-inner{
     display:flex;
@@ -483,7 +602,7 @@ footer{
     gap:24px;
     text-align:center;
 }
-footer-logo{
+.footer-logo{
     font-family:'Syne', sans-serif;
     font-size:32px;
     font-weight:800;
@@ -497,83 +616,121 @@ footer-logo{
 }
 .footer-platforms{
     display:flex;
-    gap:28px;
+    gap:20px;
     flex-wrap:wrap;
     justify-content:center;
     align-items:center;
+    max-width:600px;
 }
-.footer-platforms a{
+.footer-platform-item{
     display:flex;
-    align-items: center;
-    gap:7px;
-    color: rgba(255,255,255,0.65);
+    align-items:center;
+    gap:10px;
+    padding:10px 16px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.03);
+    color: rgba(255,255,255,0.75);
     text-decoration:none;
     font-size:14px;
-    transition:color 0.2s;
+    transition:all 0.2s;
 }
-.footer-platforms a img{
+.footer-platform-item img{
     width:18px;
     height:18px;
     object-fit:contain;
     filter:brightness(0) invert(1);
-    opacity:0.65;
-    transition:opacity 0.2s;
 }
-.footer-platforms a :hover{
+.footer-platform-item:hover{
     color:white;
-}
-.footer-platforms a:hover img{
-    opacity:1;
+    border-color:rgba(255,255,255,0.18);
+    background:rgba(255,255,255,0.08);
 }
 .footer-copy{
     font-size:13px;
-    color:rgba(255,255,255,0.35);
+    color:rgba(255,255,255,0.45);
+    max-width:520px;
+    line-height:1.7;
 }
-@media(max-width:600px){
+
+
+@media(max-width:768px){
     nav.container{
         flex-wrap:wrap;
         gap:12px;
         justify-content:center;
     }
-}
-ul{
-    gap:20px;
-    justify-content:center;
-}
-.hero-title{font-size:38px;}
-.about-podcast,
-.options,
-.epidoes,
-.host-section,
-footer{
-    padding-left:20px;
-    padding-right:20px;
-}
-.features{
-    grid-template-columns: 1fr;
-    grid-template-areas: "premium"
-    "mobile"
-    "global"
-    "interview"
-    "resource"
-    ;
-}
-.large{grid-row:auto;}
-.episode-grid{
-    grid-template-columns: 1fr;
+    
+    .nav-links{
+        display:none;
+    }
+    
+    .hamburger-btn{
+        display:inline-flex;
+    }
+    
+    .banner-section h1{
+        font-size:38px;
+    }
+    
+    .banner-section .round-mic{
+        width:260px;
+        height:260px;
+    }
+    
+    .banner-section .round-mic .mic{
+        width:140px;
+    }
+    
+    .about-podcast,
+    .options,
+    .episodes,
+    .host-section,
+    footer{
+        padding-left:20px;
+        padding-right:20px;
+    }
+    
+    .features{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "premium"
+            "mobile"
+            "global"
+            "interview"
+            "resource";
+    }
+    
+    .large{
+        grid-row:auto;
+        padding:35px;
+    }
+    
+    .episode-grid{
+        grid-template-columns: 1fr;
+    }
+    
+    .host-card{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding:28px 20px;
+    }
 
+    .social-links{
+        justify-content: center;
+    }
+    
+    .stats{
+        justify-content: center;
+    }
+    
+    .stat{
+        min-width:120px;
+        flex:0 1 calc(50% - 15px);
+    }
+    
+    .footer-platforms{
+        gap:16px;
+    }
 }
-.host-card{
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding:28px 20px;
-}
-
-.social-links{justify-content: center;}
-.stats{justify-content: center;}
-.stat{
-    min-width:120px;
-    flex:0 1 calc(50% -15px);
-}
-.footer-platforms{gap:16px;}
